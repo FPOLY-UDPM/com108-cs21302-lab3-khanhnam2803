@@ -11,19 +11,31 @@
 #include <stdio.h>
 
 int main() {
-    int soDien;
-    double donGia = 3000; // gia su 3000 VND/kWh
-    double tien;
+    int kwh;
+    double tien = 0;
 
     printf("Nhap so dien tieu thu (kWh): ");
-    scanf("%d", &soDien);
+    scanf("%d", &kwh);
 
-    if (soDien < 0) {
+    if (kwh < 0) {
         printf("So dien khong hop le!\n");
-    } else {
-        tien = soDien * donGia;
-        printf("So tien dien phai dong: %.0lf VND\n", tien);
+        return 0;
     }
 
+    if (kwh <= 50) {
+        tien = kwh * 1678;
+    } else if (kwh <= 100) {
+        tien = 50 * 1678 + (kwh - 50) * 1734;
+    } else if (kwh <= 200) {
+        tien = 50 * 1678 + 50 * 1734 + (kwh - 100) * 2014;
+    } else if (kwh <= 300) {
+        tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + (kwh - 200) * 2536;
+    } else if (kwh <= 400) {
+        tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (kwh - 300) * 2834;
+    } else {
+        tien = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kwh - 400) * 2927;
+    }
+
+    printf("So tien dien phai dong: %.0lf VND\n", tien);
     return 0;
 }
