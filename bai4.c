@@ -14,15 +14,39 @@ int main() {
     int choice;
     do {
         printf("\n===== MENU CHUONG TRINH =====\n");
-        printf("1. Giai phuong trinh bac 1 (ax + b = 0)\n");
-        printf("2. Giai phuong trinh bac 2 (ax^2 + bx + c = 0)\n");
-        printf("3. Tinh tien dien\n");
+        printf("1. Xet hoc luc\n");
+        printf("2. Giai phuong trinh bac 1 (ax + b = 0)\n");
+        printf("3. Giai phuong trinh bac 2 (ax^2 + bx + c = 0)\n");
+        printf("4. Tinh tien dien\n");
         printf("0. Thoat\n");
         printf("Chon chuc nang: ");
         scanf("%d", &choice);
 
         switch(choice) {
             case 1: {
+                float diem;
+
+                printf("Nhap diem cua sinh vien (0-10): ");
+                scanf("%f", &diem);
+
+                if (diem < 0 || diem > 10) {
+                    printf("Diem khong hop le. Vui long nhap tu 0 den 10.\n");
+                } else if (diem >= 9) {
+                    printf("Hoc luc: Xuat sac\n");
+                } else if (diem >= 8) {
+                    printf("Hoc luc: Gioi\n");
+                } else if (diem >= 6.5) {
+                    printf("Hoc luc: Kha\n");
+                } else if (diem >= 5) {
+                    printf("Hoc luc: Trung binh\n");
+                } else if (diem >= 3.5) {
+                    printf("Hoc luc: Yeu\n");
+                } else {
+                    printf("Hoc luc: Kem\n");
+                }
+                break;
+            }
+            case 2: {
                 double a, b;
                 printf("Nhap a: ");
                 scanf("%lf", &a);
@@ -41,7 +65,7 @@ int main() {
                 }
                 break;
             }
-            case 2: {
+            case 3: {
                 double a, b, c;
                 printf("Nhap a: ");
                 scanf("%lf", &a);
@@ -78,7 +102,7 @@ int main() {
                 }
                 break;
             }
-            case 3: {
+            case 4: {
                 int kwh;
                 double tien = 0;
 
